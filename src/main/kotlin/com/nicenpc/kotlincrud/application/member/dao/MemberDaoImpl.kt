@@ -11,8 +11,8 @@ class MemberDaoImpl : MemberDao {
 
     override fun create(memberDomain: MemberDomain) {
         val memberEntity = MemberEntity()
-        memberEntity.name = memberDomain.getName()
-        memberEntity.age = memberDomain.getAge()
+        memberEntity.name = memberDomain.name
+        memberEntity.age = memberDomain.age
         memberRepository.save(memberEntity)
     }
 
