@@ -1,11 +1,15 @@
 package com.nicenpc.kotlincrud.application.member.service.create
 
+import com.nicenpc.kotlincrud.application.member.dao.MemberDao
+import com.nicenpc.kotlincrud.application.member.dao.MemberDaoImpl
 import com.nicenpc.kotlincrud.domain.member.entity.MemberDomain
 import io.micrometer.common.util.StringUtils
 import org.springframework.stereotype.Service
 
 @Service
 class CreateMemberApplicationServiceImpl : CreateMemberApplicationService {
+
+    lateinit var memberDao: MemberDao
 
     override fun execute(createMemberCommand: CreateMemberCommand) {
 
@@ -26,6 +30,7 @@ class CreateMemberApplicationServiceImpl : CreateMemberApplicationService {
             age = createMemberCommand.age
         )
 
-        println(memberDomain)
+
+        memberDao.create(memberDomain)
     }
 }
