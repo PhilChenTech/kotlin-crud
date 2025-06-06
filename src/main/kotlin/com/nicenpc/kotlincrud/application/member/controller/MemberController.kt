@@ -6,12 +6,11 @@ import com.nicenpc.kotlincrud.application.member.service.create.CreateMemberComm
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
-
+@RestController
 @RequestMapping("/member")
 class MemberController {
-
-
     private lateinit var createMemberApplicationService: CreateMemberApplicationService
 
     @PostMapping
