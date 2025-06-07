@@ -8,4 +8,5 @@ interface MemberDao {
     fun update(memberDomain: MemberDomain): MemberDomain
     fun delete(id: Long)
     fun findById(id: Long): Optional<MemberDomain>
+    fun findByCondition(findMemberByConditionDto:FindMemberByConditionDto): List<MemberDomain>
 }
