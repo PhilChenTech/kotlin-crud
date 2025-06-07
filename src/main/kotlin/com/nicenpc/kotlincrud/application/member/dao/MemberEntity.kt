@@ -1,20 +1,20 @@
 package com.nicenpc.kotlincrud.application.member.dao
 
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 @Entity
-class MemberEntity {
-
+data class MemberEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     var id: Long? = null
-     var name: String? = null
-     var age: Int? = null
+    val id: Long? = null,
 
-    override fun toString(): String {
-        return "MemberEntity(id=$id, name=$name, age=$age)"
-    }
-}
+    @Column(nullable = false, length = 100)
+    var name: String,
+
+    @Column(nullable = false)
+    var age: Int
+)

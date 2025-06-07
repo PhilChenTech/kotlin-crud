@@ -33,18 +33,19 @@ class MemberDaoImpl : MemberDao {
     }
 
     fun convert(memberDomain: MemberDomain): MemberEntity {
-        return MemberEntity().apply {
-            this.id = memberDomain.id
-            this.name = memberDomain.name
-            this.age = memberDomain.age
-        }
-    }
-
-    fun convert(entity: MemberEntity): MemberDomain {
-        return MemberDomain(
-            id = entity.id,
-            name = entity.name ?: "",
-            age = entity.age ?: 0
+        return MemberEntity(
+            id = memberDomain.id,
+            name = memberDomain.name,
+            age = memberDomain.age
         )
     }
+
+fun convert(entity: MemberEntity): MemberDomain {
+    return MemberDomain(
+        id = entity.id,
+        name = entity.name,
+        age = entity.age
+    )
+}
+
 }

@@ -26,12 +26,13 @@ class MemberController {
 
     @PutMapping("{id}")
     fun createMember(@PathVariable id: Long, @RequestBody updateMemberRequest: UpdateMemberRequest) {
+        val updateMemberCommand = UpdateMemberCommand(
+            id,
+            updateMemberRequest.name,
+            updateMemberRequest.age
+        )
         updateMemberApplicationService.execute(
-            UpdateMemberCommand(
-                id,
-                updateMemberRequest.name,
-                updateMemberRequest.age
-            )
+            updateMemberCommand
         )
     }
 
